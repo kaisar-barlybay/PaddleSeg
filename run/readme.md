@@ -17,3 +17,11 @@ python P:\PaddleSeg\tools\predict.py ^
 --image_path Z:\datasets\cracks\crack_segmentation_dataset\images\CFD_001.jpg ^
 --save_dir P:\PaddleSeg\outputs\hrsegnetb48\result
 ```
+
+## build docker
+
+```
+docker build -t my_cuda_jupyter .
+docker run --gpus all -p 8888:8888 -v ./notebooks:/notebooks my_cuda_jupyter
+
+```
