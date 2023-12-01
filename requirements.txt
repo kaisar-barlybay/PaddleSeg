@@ -6,3 +6,6 @@ filelock
 scipy
 prettytable
 scikit-learn
+Flask
+autopep8
+pylint

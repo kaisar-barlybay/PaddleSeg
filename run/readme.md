@@ -20,8 +20,18 @@ python P:\PaddleSeg\tools\predict.py ^
 
 ## build docker
 
-```
-docker build -t my_cuda_jupyter .
-docker run --gpus all -p 8888:8888 -v ./notebooks:/notebooks my_cuda_jupyter
+- config nvidia-container: `https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#installing-with-apt`
 
+```
+docker build -t cuda-cudnn .
+
+
+docker run --gpus all -p 8888:8888 -v ./notebooks:/notebooks cuda-cudnn
+
+```
+
+## flask
+
+```
+flask --app main --debug run
 ```

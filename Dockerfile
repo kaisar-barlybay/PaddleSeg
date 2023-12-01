@@ -1,29 +1,40 @@
-# Start from an NVIDIA CUDA image
-FROM nvidia/cuda:12.0.0-devel-ubuntu20.04
+# FROM nvidia/cuda:12.0.0-devel-ubuntu20.04
+FROM nvidia/cuda:12.0.0-cudnn8-devel-ubuntu22.04
 
-# Install necessary packages
 RUN apt-get update && apt-get install -y wget
-
-# Download and install cuDNN (replace this with the actual commands to install cuDNN v8.1.1)
-# Note: You need to follow NVIDIA's instructions and comply with their terms of service.
-# The below commands are placeholders and need to be replaced with actual download and install commands.
-
-# Install Jupyter Notebook
 RUN apt-get install -y python3-pip python3-dev
+
 RUN pip3 install notebook
+RUN python3 -m pip install paddlepaddle-gpu==2.5.2.post120 -f https://www.paddlepaddle.org.cn/whl/linux/cudnnin/stable.html
+RUN apt-get install git ffmpeg libsm6 libxext6  -y
 
-# RUN wget [CUDNN_DOWNLOAD_LINK] && \
-#     tar -xzvf [CUDNN_TAR_FILE] && \
-#     cp cuda/include/cudnn*.h /usr/local/cuda/include && \
-#     cp cuda/lib64/libcudnn* /usr/local/cuda/lib64 && \
-#     chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
+RUN export SHELL=/bin/bash
+RUN ln -s /usr/bin/python3 /usr/bin/python
 
-# Expose port for Jupyter Notebook
+# paddleseg
+RUN mkdir -p /home/PaddleSeg
+WORKDIR /home/PaddleSeg
+COPY . .
+RUN pip3 install -r requirements.txt
+RUN pip3 install -v -e .
+RUN pip3 install paddleseg
+
+# flask
+EXPOSE 5000
+
+
+# notebooks
 EXPOSE 8888
 
-# Set up the volume directory
 VOLUME /notebooks
 WORKDIR /notebooks
 
 # Run Jupyter Notebook
 CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--no-browser", "--allow-root"]
+
+
+# https://developer.download.nvidia.com/compute/cudnn/secure/8.9.1/local_installers/12.x/cudnn-local-repo-ubuntu2004-8.9.1.23_1.0-1_amd64.deb?QdzzSVnG_inA2QnYi8Bs6Stg1dhEW86q4OTs9RRpC4bvDgQMROKcbF_vNGw1W84BsIv6P7Ots5mKmTJBzgNKNxR0je4Kkm6L_e57TT3ZW0TqLwDY94LQLmc-fCPEqQNdiENenpDJTXejB9Y_1-eYbLnMDPfhfKnZShQZe0-dKRx_MJJojOAvR5gUTHOItEWD0ordhv7IkN_4pTWU8eZee0QH358=&t=eyJscyI6ImdzZW8iLCJsc2QiOiJodHRwczovL3d3dy5nb29nbGUuY29tLyJ9
+# apt-get install libcudnn8=8.9.1-1+cuda12.0
+#
+#
+#

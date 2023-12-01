@@ -1,0 +1,79 @@
+{
+  "editor.tabSize": 2,
+  "[json]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace"
+  },
+  "javascript.validate.enable": true,
+  "python.formatting.provider": "autopep8",
+  "[python]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.sortImports": true,
+      "source.organizeImports": true,
+      "source.unusedImports": true
+    }
+  },
+  "[rmd]": {
+    "editor.tabSize": 3
+  },
+  "emmet.includeLanguages": {
+    "html.erb": "html",
+    "django-html": "html"
+  },
+  "editor.detectIndentation": false,
+  "files.associations": {
+    "*.erb": "erb",
+    "django-html": "html",
+    "*.js": "javascriptreact",
+    "*.rmd": "markdown",
+    "*.Rmd": "rmd"
+  },
+  "editor.suggestSelection": "first",
+  "git.confirmSync": false,
+  "git.autofetch": true,
+  "git.enableSmartCommit": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "files.autoSave": "onFocusChange",
+  "diffEditor.wordWrap": "off",
+  "files.watcherExclude": {
+    "**/.bloop": true,
+    "**/.metals": true,
+    "**/.ammonite": true
+  },
+  "explorer.confirmDelete": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "terminal.integrated.defaultProfile.windows": "Command Prompt",
+  "editor.wordWrapColumn": 160,
+  "eslint.format.enable": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "files.eol": "\n",
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "python.analysis.typeCheckingMode": "off",
+  "python.analysis.autoImportCompletions": true,
+  "files.exclude": {
+    "**/.git": false
+  }
+}
