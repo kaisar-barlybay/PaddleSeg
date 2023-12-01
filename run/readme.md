@@ -14,8 +14,8 @@
 python P:\PaddleSeg\tools\predict.py ^
 --config P:\PaddleSeg\configs\hrsegnet\hrsegnetb48.yml ^
 --model_path P:\PaddleSeg\outputs\hrsegnetb48\best_model\model.pdparams ^
---image_path Z:\datasets\cracks\crack_segmentation_dataset\images\CFD_001.jpg ^
---save_dir P:\PaddleSeg\outputs\hrsegnetb48\result
+--image_path Z:\datasets\cracks\tests\2 ^
+--save_dir P:\PaddleSeg\outputs\hrsegnetb48\result\2
 ```
 
 ## build docker
