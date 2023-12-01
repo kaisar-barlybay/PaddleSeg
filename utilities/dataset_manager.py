@@ -53,7 +53,7 @@ class DatasetManager(Base):
         else:
             print(prefix + '├── ' + item)
 
-  def copy_relevant_datasets(self, root_directory: str) -> list[tuple[str, str]]:
+  def copy_relevant_datasets(self, root_directory: str, destionation_path: str) -> list[tuple[str, str, str]]:
     """
     copies only relevant data organizing in subfolders convenient for prediction
     """
@@ -61,20 +61,18 @@ class DatasetManager(Base):
     folder_files_map = self.get_files_in_directory(root_directory)
     extracted_subpaths = []
 
+    i = 0
+
     for path in paths:
         # Find the index of "КЦТ_Фото_Шахты" in the path
         index = path.find("КЦТ_Фото_Шахты")
 
         if index != -1:
-            # Add the length of "КЦТ_Фото_Шахты\\" to the index to start extracting after this folder
-            subpath_start = index + len("КЦТ_Фото_Шахты\\")
-            # Extract the subpath
-            subpath = path[subpath_start:]
-            extracted_subpaths.append((path, subpath))
-
-    for i, (path, subpath) in enumerate(extracted_subpaths):
-      destination_folder = os.path.join('Z:', 'datasets', 'cracks', 'tests', f'{i}')
-      self.copy_and_rename_files(f'{i}', folder_files_map[path], destination_folder)
+            working_dir = os.path.join(destionation_path, f'{i}')
+            image_path = os.path.join(working_dir, 'input')
+            self.copy_and_rename_files(f'{i}', folder_files_map[path], image_path)
+            extracted_subpaths.append((path, working_dir, image_path))
+            i += 1
     
     return extracted_subpaths
 
