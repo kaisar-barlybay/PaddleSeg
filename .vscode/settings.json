@@ -7,7 +7,6 @@
     "editor.suggest.insertMode": "replace"
   },
   "javascript.validate.enable": true,
-  "python.formatting.provider": "autopep8",
   "[python]": {
     "editor.insertSpaces": true,
     "editor.tabSize": 2,

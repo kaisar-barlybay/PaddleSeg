@@ -16,7 +16,7 @@ class Runner(Base):
       os.makedirs(working_dir)
     # Simulate command line arguments
     sys.argv = [
-      'script.py',
+      # 'script.py',
       '--config',
       self.config_path,
       '--model_path',

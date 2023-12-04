@@ -10,3 +10,4 @@ Flask
 autopep8
 pylint
 imageio
+labelme
