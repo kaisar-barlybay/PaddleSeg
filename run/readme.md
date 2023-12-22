@@ -7,6 +7,7 @@
   pip install -v -e .
   pip install paddleseg
   ```
+- check installation: `import paddle; paddle.utils.run_check()`
 
 ## Run Windows
 

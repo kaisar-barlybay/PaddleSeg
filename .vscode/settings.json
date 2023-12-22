@@ -12,9 +12,9 @@
     "editor.tabSize": 2,
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-      "source.sortImports": true,
-      "source.organizeImports": true,
-      "source.unusedImports": true
+      "source.sortImports": "explicit",
+      "source.organizeImports": "explicit",
+      "source.unusedImports": "explicit"
     }
   },
   "[rmd]": {
@@ -38,7 +38,7 @@
   "git.enableSmartCommit": true,
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
   "files.autoSave": "onFocusChange",
   "diffEditor.wordWrap": "off",
