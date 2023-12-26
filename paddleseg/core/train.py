@@ -13,18 +13,17 @@
 # limitations under the License.
 
 import os
+import shutil
 import time
 from collections import deque
-import shutil
 from copy import deepcopy
 
 import paddle
-import paddle.nn.functional as F
 
-from paddleseg.utils import (TimeAverager, calculate_eta, resume, logger,
-                             worker_init_fn, train_profiler, op_flops_funs,
-                             init_ema_params, update_ema_model)
 from paddleseg.core.val import evaluate
+from paddleseg.utils import (TimeAverager, calculate_eta, init_ema_params,
+                             logger, op_flops_funs, resume, train_profiler,
+                             update_ema_model, worker_init_fn)
 
 
 def check_logits_losses(logits_list, losses):

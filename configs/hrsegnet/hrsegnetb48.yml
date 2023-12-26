@@ -1,10 +1,10 @@
 batch_size: 32
-iters: 100000
+iters: 200000
 
 train_dataset:
   type: Dataset
-  dataset_root: data/crackseg9k
-  train_path: data/crackseg9k/train.txt
+  dataset_root: Z:\datasets\cracks\concrete3k\
+  train_path: Z:\\datasets\\cracks\\concrete3k\\train.txt
   num_classes: 2
   mode: train
   transforms:
@@ -23,23 +23,20 @@ train_dataset:
 
 val_dataset:
   type: Dataset
-  dataset_root: data/crackseg9k
-  val_path: data/crackseg9k/val.txt
+  dataset_root: Z:\datasets\cracks\concrete3k\
+  val_path: Z:\datasets\cracks\concrete3k\val.txt
   num_classes: 2
   mode: val
   transforms:
     - type: Normalize
 
-
 model:
   type: HrSegNetB48
-
 
 optimizer:
   type: SGD
   momentum: 0.9
   weight_decay: 0.0005
-  
 
 loss:
   types:
@@ -48,7 +45,6 @@ loss:
     - type: OhemCrossEntropyLoss
   coef: [1, 0.5, 0.5]
 
-
 lr_scheduler:
   type: PolynomialDecay
   learning_rate: 0.01
@@ -56,7 +52,3 @@ lr_scheduler:
   power: 0.9
   warmup_iters: 2000
   warmup_start_lr: 1.0e-5
-
-
-
-  

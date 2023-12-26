@@ -14,13 +14,12 @@
 
 import os
 
-import paddle
 import numpy as np
-from PIL import Image
+import paddle
 
+import paddleseg.transforms.functional as F
 from paddleseg.cvlibs import manager
 from paddleseg.transforms import Compose
-import paddleseg.transforms.functional as F
 
 
 @manager.DATASETS.add_component
