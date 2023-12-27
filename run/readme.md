@@ -11,12 +11,14 @@
 
 ## Run Windows
 
+#### !
+
 ```
 python P:\PaddleSeg\tools\predict.py ^
 --config P:\PaddleSeg\configs\hrsegnet\hrsegnetb48.yml ^
 --model_path P:\PaddleSeg\outputs\hrsegnetb48_custom\best_model\model.pdparams ^
---image_path Z:\datasets\cracks\tests\selected ^
---save_dir P:\PaddleSeg\outputs\hrsegnetb48_custom\result\selected
+--image_path Z:\datasets\cracks\Заколы\фото\04.10.2023\converted ^
+--save_dir Z:\datasets\cracks\Заколы\фото\04.10.2023\predicted
 ```
 
 ## Train Windows
@@ -51,7 +53,7 @@ python P:\PaddleSeg\tools\train.py ^
 ```
 visualdl ^
 --logdir P:\PaddleSeg\outputs\hrsegnetb48_custom ^
---model P:\PaddleSeg\outputs\hrsegnetb48_custom\iter_1500\model.pdparams ^
+--model P:\PaddleSeg\outputs\hrsegnetb48_custom\best_model\model.pdparams ^
 --host localhost ^
 --port 8002 ^
 --cache-timeout <cache_timeout> ^

@@ -11,9 +11,9 @@ class Runner(Base):
     self.config_path = os.path.join(os.getcwd(), 'configs', 'hrsegnet', 'hrsegnetb48.yml')
     super().__init__()
 
-  def run_model(self, image_path: str, working_dir: str):
-    if not os.path.exists(working_dir):
-      os.makedirs(working_dir)
+  def run_model(self, image_path: str, save_dir: str):
+    if not os.path.exists(save_dir):
+      os.makedirs(save_dir)
     # Simulate command line arguments
     sys.argv = [
       # 'script.py',
@@ -24,7 +24,7 @@ class Runner(Base):
       '--image_path',
       image_path,
       '--save_dir',
-      working_dir
+      save_dir
     ]
 
     # Now, when you call parse_args(), it will use the above arguments

@@ -6,7 +6,7 @@ from utilities.base import Base
 
 
 class DatasetManager(Base):
-  def get_files_in_directory(self, base_path: str):
+  def get_files_in_directory(self, base_path: str) -> dict[str, list[str]]:
     """
     function return dict where keys are paths to directories and values are paths to the content of folders, except folders paths
     """
