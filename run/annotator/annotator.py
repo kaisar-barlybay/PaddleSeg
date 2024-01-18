@@ -4,7 +4,7 @@ import json
 import os
 from tkinter import (Canvas, Checkbutton, Frame, IntVar, Label, Scrollbar,
                      StringVar, Tk, filedialog, messagebox)
-
+from .helpers import artifacts
 from PIL import Image, ImageTk
 
 
@@ -14,19 +14,7 @@ class ImageAnnotator:
         self.image_folder = image_folder
         self.current_index = 0
         self.image_files = [f for f in os.listdir(image_folder) if f.endswith('.json')]
-        self.artifacts = {
-            "crack": "Закольные трещины",
-            "overexposure": "Засветы",
-            "shadow": "Тени от пород",
-            "light_beam": "Пучки света",
-            "metal_structure": "Металлические конструкции, арматура",
-            "pipe": "Трубы",
-            "wire": "Провода",
-            "equipment": "Техника",
-            "camera_shadow": "Тени от камеры (планшет / телефон)",
-            "through_tunnel": "Сквозные туннели",
-            "horizontal": "Горизонтально",
-        }
+        self.artifacts = artifacts
         self.check_vars = {artifact: IntVar() for artifact in self.artifacts.keys()}
 
         if not self.image_files:

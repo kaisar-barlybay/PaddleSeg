@@ -119,4 +119,8 @@ EISeg/eiseg/config/setting.txt
 outputs/*/*
 !outputs/*/best_model/
 
+input/
+output/
+run/best/
+
 env/*

@@ -14,9 +14,8 @@ class Runner(Base):
   def run_model(self, image_path: str, save_dir: str):
     if not os.path.exists(save_dir):
       os.makedirs(save_dir)
-    # Simulate command line arguments
     sys.argv = [
-      # 'script.py',
+      'python P:\\PaddleSeg\\tools\\predict.py',
       '--config',
       self.config_path,
       '--model_path',
@@ -26,9 +25,12 @@ class Runner(Base):
       '--save_dir',
       save_dir
     ]
+    
+    print('AAA', sys.argv)
 
     # Now, when you call parse_args(), it will use the above arguments
     args = parse_args()
+    print('AAA', args)
 
     # Call the main function with these arguments
     main(args)

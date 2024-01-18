@@ -16,9 +16,9 @@
 ```
 python P:\PaddleSeg\tools\predict.py ^
 --config P:\PaddleSeg\configs\hrsegnet\hrsegnetb48.yml ^
---model_path P:\PaddleSeg\outputs\hrsegnetb48_custom\best_model\model.pdparams ^
---image_path Z:\datasets\cracks\Заколы\фото\04.10.2023\converted ^
---save_dir Z:\datasets\cracks\Заколы\фото\04.10.2023\predicted
+--model_path P:\PaddleSeg\outputs\hrsegnetb48\best_model\model.pdparams ^
+--image_path Z:\datasets\cracks\zakoly\photos\04.10.2023\test ^
+--save_dir Z:\datasets\cracks\zakoly\photos\04.10.2023\test_predicted
 ```
 
 ## Train Windows
@@ -68,6 +68,9 @@ visualdl ^
 
 ```
 docker build -t cuda-cudnn .
+docker build -t server .
+docker run -p 8080:8080 server
+
 
 
 docker run --gpus all -p 8888:8888 -v ./notebooks:/notebooks cuda-cudnn
